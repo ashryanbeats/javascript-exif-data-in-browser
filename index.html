@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EXIF</title>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<h1>EXIF data</h1>
+
+	<p>Click the image. Exif data will be logged in the console.</p>
+
+	<p>Using <a href="https://github.com/exif-js/exif-js">Exif.js</a></p>.
+
+	<img id="myImage" src="images/buildings.jpg">
+
+
+	<script type="text/javascript" src="exif.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.3.js"   integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="   crossorigin="anonymous"></script>
+
+	<script>
+		$("#myImage").click(function() {
+			console.log("oy");
+
+			EXIF.getData(this, function() {
+				console.log(EXIF.pretty(this));
+			})
+		})
+	</script>
+</body>
+</html>
